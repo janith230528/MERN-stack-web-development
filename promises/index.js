@@ -16,19 +16,23 @@ function productFind(password){
     )
 }
 
-productFind("1234").then(
-    (products)=>{
-        console.log("Products found", products)
-    }
+// productFind("1234").then(
+//     (products)=>{
+//         console.log("Products found", products)
+//     }
 
-).catch(
-    (error)=>{
-        console.log("Error finding products", error)
-    }
+// ).catch(
+//     (error)=>{
+//         console.log("Error finding products", error)
+//     }
 
-).finally(
-    ()=>{
-        console.log("Finished finding products")
-    }
+// ).finally(
+//     ()=>{
+//         console.log("Finished finding products")
+//     }
 
-)
+// )
+
+const products = await productFind("1234")
+
+console.log("Products found", products)
