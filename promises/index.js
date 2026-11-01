@@ -33,6 +33,11 @@ function productFind(password){
 
 // )
 
-const products = await productFind("1234")
-
-console.log("Products found", products)
+try{
+    const products = await productFind("1234")
+    console.log("Products found", products) 
+}catch{
+    (error)=>{
+        console.log("Error finding products", error)
+    }
+}
