@@ -8,13 +8,18 @@ const bringMeChocolate = new Promise (
             if(isShopOpen){
                 if(haveMoney){
                     if(isVehicleOkay){
-                        resolve()
+                        resolve({
+                            brand: "Cadbury",
+                            flavour: "Milk Chocolate",
+                        });
                     } else{
-                        reject()
+                        reject("Vehicle is not okay")
                     }
                 } else{
-                    reject()
+                    reject("No money")
                 }
+            }else{
+                reject("Shop is closed")
             }
         }, 5000)
     }
@@ -23,12 +28,12 @@ const bringMeChocolate = new Promise (
 console.log("software Started")
 
 bringMeChocolate.then(
-    ()=>{
-        console.log("I have brought chocolate")
+    (chocolate)=>{
+        console.log("I have brought chocolate", chocolate)
     }
 ).catch(
-    ()=>{
-        console.log("I could not bring chocolate")
+    (error)=>{
+        console.log("I could not bring chocolate", error)
     }
 ).finally(
     ()=>{
