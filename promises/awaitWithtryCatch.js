@@ -16,6 +16,8 @@ function productFind(password){
     )
 }
 
+
+
 try{
     const products = await productFind("1234")
     console.log("Products found", products) 
