@@ -29,7 +29,8 @@ export function createProduct(req, res){
 }
 
 export function getAllProducts(req, res){
-    if(isAdmin(req)){
+    try{
+ if(isAdmin(req)){
         Product.find().then(
             (products) => {
             res.json(products)
@@ -54,6 +55,13 @@ export function getAllProducts(req, res){
             }
         )
     }
+    }catch(error){
+        res.status(500).json({
+            message: "Error fetching products",
+            error: error.message
+        })
+    }
+   
 }
 
 export function deleteProduct(req, res){
